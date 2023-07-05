@@ -36,19 +36,136 @@
     </div>
 
     <!-- Page content -->
-    <div class="content">
-        <!-- Section 1 content -->
-        <section id="section1">
-            <h2>Background for Dune</h2>
-            <p>
-                "Dune" is a science fiction novel written by Frank Herbert. Set in the distant future, the story unfolds
-                on the desert planet Arrakis, commonly known as Dune. It follows the life of Paul Atreides, the young
-                heir of House Atreides, as he becomes embroiled in a complex and dangerous interplay of political
-                intrigue, power struggles, and ecological conflicts.
-            </p>
-        </section>
+    <section id="section1">
+        <h1>Background on Dune by Frank Herbert</h1>
+        <p>"Dune" is a science fiction novel written by Frank Herbert, originally published in 1965. It is widely considered a masterpiece of the genre and has had a significant impact on science fiction literature and popular culture. The book is the first in a series of six novels, collectively known as the "Dune" series, with additional novels written by Frank Herbert's son, Brian Herbert, and co-author Kevin J. Anderson.</p>
+        
+        <p>"Dune" is set in the distant future, where interstellar travel and advanced technology coexist with feudalism and political intrigue. The story takes place primarily on the desert planet Arrakis, also known as Dune, which is the only known source of the spice melange—a valuable and addictive substance that extends life, enhances mental abilities, and enables interstellar travel. The control of Arrakis and its spice becomes the focal point of various political and religious factions.</p>
+        
+        <p>The main protagonist of "Dune" is Paul Atreides, the young scion of House Atreides, a noble family tasked with overseeing Arrakis after the previous ruling family, House Harkonnen, is removed. As Paul and his family arrive on Arrakis, they become embroiled in a complex web of political maneuvering and betrayal. Paul discovers his own extraordinary abilities and fulfills a prophecy as the messianic figure known as the Kwisatz Haderach.</p>
+        
+        <p>The novel explores numerous themes, including ecology, religion, political power, and the nature of humanity. It delves into the intricate interplay of politics, religion, and ecology, with a particular focus on the relationship between humans and their environment.</p>
+        
+        <p>"Dune" received critical acclaim upon its release and won the prestigious Nebula Award for Best Novel in 1966 and the Hugo Award for Best Novel in 1966. It has since become one of the best-selling science fiction novels of all time and has been adapted into various forms of media, including a 1984 film directed by David Lynch and a 2021 film directed by Denis Villeneuve.</p>
+        
+        <p>The "Dune" series has had a lasting impact on the science fiction genre, influencing other authors, filmmakers, and artists. Its intricate world-building, complex characters, and thought-provoking themes have cemented its status as a classic work of science fiction literature.</p>
+        <p>
+            Here are some images from the 2021 movie by Director Denis Villeneuve as well as a map of Arrakis to help in
+            understanding the makeup of the planet as well as the different locations mentioned throughout the series.
+
+        </p>
+    </section>
+
+    <!-- Container for the image gallery -->
+    <div class="container">
+        <!-- Full-width images with number text -->
+        <div class="mySlides">
+            <div class="numbertext">1 / 9</div>
+            <img src="img/arrakis-latitude.png" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">2 / 9</div>
+            <img src="img/thopter.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">3 / 9</div>
+            <img src="img/PaulAtreides.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">4 / 9</div>
+            <img src="img/movieposter.jpeg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">5 / 9</div>
+            <img src="img/fremen.jpeg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">6 / 9</div>
+            <img src="img/sardukar.png" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">7 / 9</div>
+            <img src="img/benegesserit.jpeg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">8 / 9</div>
+            <img src="img/DukeLeto.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">9 / 9</div>
+            <img src="img/Atreidesarmies.jpeg" style="width:100%">
+        </div>
+
+        <!-- ... Rest of the HTML code ... -->
     </div>
 
+    <!-- Next and previous buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <!-- Image text -->
+    <div class="caption-container">
+        <p id="caption"></p>
+    </div>
+
+    <!-- Thumbnail images -->
+    <div class="row">
+        <!-- Thumbnail images... -->
+    </div>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        // Next/previous controls
+        function plusSlides(n) {
+            showSlides(slideIndex + n);
+        }
+
+        // Thumbnail image controls
+        function currentSlide(n) {
+            showSlides(n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("demo");
+            let captionText = document.getElementById("caption");
+            if (n > slides.length) {
+                slideIndex = 1;
+            } else if (n < 1) {
+                slideIndex = slides.length;
+            } else {
+                slideIndex = n;
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            captionText.innerHTML = dots[slideIndex - 1].alt;
+        }
+
+        let slides = document.getElementsByClassName("mySlides");
+
+        // Check if slides array is not empty
+        if (slides.length > 0) {
+            // Display the current slide
+            slides[slideIndex - 1].style.display = "block";
+        }
+    </script>
 </body>
 
 </html>
